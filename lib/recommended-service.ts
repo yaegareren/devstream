@@ -50,9 +50,16 @@ export const getRecommended = async () => {
           },
         },
       },
-      orderBy: {
-        createdAt: "desc",
-      },
+      orderBy: [
+        {
+          stream: {
+            isLive: "desc",
+          },
+        },
+        {
+          createdAt: "desc",
+        },
+      ],
     });
   } else {
     users = await db.user.findMany({
@@ -63,9 +70,16 @@ export const getRecommended = async () => {
           },
         },
       },
-      orderBy: {
-        createdAt: "desc",
-      },
+      orderBy: [
+        {
+          stream: {
+            isLive: "desc",
+          },
+        },
+        {
+          createdAt: "desc",
+        },
+      ],
     });
   }
   return users;
